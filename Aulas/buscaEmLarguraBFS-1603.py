@@ -2,7 +2,7 @@ def BFS(G,s):
    visitados = [s]
    distancias = {}
    distancias[s] = 0
-
+   arvore = []
    fila = [s]
 
    while len(fila) > 0:
@@ -12,49 +12,20 @@ def BFS(G,s):
          if v not in visitados:
             visitados.append(v)
             distancias[v] = distancias[u] + 1
+            arvore.append(u + '' + v)
             fila.append(v)
-   return visitados, distancias
-
-# Testes/Rascunhos
-# def menor_caminho(distancias, inicio, fim):
-#    i = 0
-#    menor = [fim]
-#    aux = 10
-#    while i < distancias[fim]:
-#       aux = 10
-#       for adjacente in G[fim]:
-#          if adjacente == inicio:
-#             menor.append(adjacente)
-#             break
-#          if distancias[adjacente] < aux:
-#             aux = distancias[adjacente]
-#             adj_certo = adjacente
-#       menor.append(adj_certo)
-#       fim = adj_certo
-#       i+=1
-#    menor.append(inicio)
-#    return menor
-
-      
-
+   return visitados, distancias, arvore
 
 G = {
   'A' : ['B','C','D'],
   'B' : ['A', 'E'],
-  'C' : ['A','G'],
-  'D' : ['A','H'],
-  'E' : ['B'],
-  'F' : [],
-  'G' : ['C','H'],
-  'H' : ['D','G','I'],
-  'I' : ['H']
+  'C' : ['A', 'D', 'E'],
+  'D' : ['A','C','F'],
+  'E' : ['B', 'F', 'C'],
+  'F' : ['E', 'D']
 }
 
-visitados, distancias = BFS(G, 'A')
-#menorCaminho = menor_caminho(distancias, 'E', 'I')
-#print(menorCaminho)
-
+visitados, distancias, arvore = BFS(G, 'A')
 print(visitados)
 print(distancias)
-
-
+print(arvore)
