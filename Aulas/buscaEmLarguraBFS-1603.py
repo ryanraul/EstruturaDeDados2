@@ -2,7 +2,7 @@ def BFS(G,s):
    visitados = [s]
    distancias = {}
    distancias[s] = 0
-   arvore = []
+
    fila = [s]
 
    while len(fila) > 0:
@@ -12,9 +12,8 @@ def BFS(G,s):
          if v not in visitados:
             visitados.append(v)
             distancias[v] = distancias[u] + 1
-            arvore.append(u + '' + v)
             fila.append(v)
-   return visitados, distancias, arvore
+   return visitados, distancias
 
 G = {
   'A' : ['B','C','D'],
@@ -28,4 +27,3 @@ G = {
 visitados, distancias, arvore = BFS(G, 'A')
 print(visitados)
 print(distancias)
-print(arvore)

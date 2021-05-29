@@ -30,34 +30,43 @@ class Grafo:
 
       while len(fila) > 0:
          u = fila.pop(0)
-         
+    
          for v in self.arestas[u]:
+            # O caminho apenas será composto por vertices cuja a aresta tenha o peso maior que zero
             if v not in visitados and self.pesos[(u,v)] > 0:
                fila.append(v)
                visitados.append(v)
+               # Adiciona ao caminho do vertice (v) o vertice que tenha a ligação com o mesmo
                caminho[v] = u
 
+      # Caso a rota até o destino ainda seja possivel retornar verdadeiro (True)
       return True if t in visitados else False
 
    def ford_fulkerson(self, origem, destino):
 
       fluxo_max = 0
       caminho = {}
-         
+
+      # Enquanto o destino estiver entre os vertices visitados, executa o processo.
       while self.BFS(origem, destino, caminho):
          caminho_fluxo = float("Inf")
 
          s = destino
          while(s != origem):
+            # Recupera aresta com menor valor presente no caminho entre 'origem' e 'destino'
             caminho_fluxo = min(caminho_fluxo, self.pesos[(caminho[s], s)])
             s = caminho[s]
-
+         
+         # Incrementando o 'fluxo_max' com a aresta de menor valor inclusa no caminho entre a 'origem' e o 'destino'
          fluxo_max += caminho_fluxo
 
          v = destino
          while(v != origem):
+            # Recuperando o vertice (u) que esta conectado ao vertice de destino (v)
             u = caminho[v]
+            # Decrementando os valores das arestas que liga 'u' e 'v' com o menor valor entre as arestas do caminho (caminho_fluxo)
             self.pesos[(u,v)] -= caminho_fluxo
+            # Alterando o vertice destino (v) para que ocorra a decrementação de todas arestas que compoe este caminho
             v = caminho[v]
 
       return fluxo_max
