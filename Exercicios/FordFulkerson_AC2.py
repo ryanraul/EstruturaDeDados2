@@ -1,3 +1,16 @@
+"""
+| --- Implementação do algoritmo de Ford-Fulkerson --- |
+| --------------- Integrantes do grupo --------------- |
+|                                                      |
+| + Nome: Elias Della Torre Costa - RA: 190301         |   
+| + Nome: Gabriel José Ferraz Perin - RA: 190583       |   
+| + Nome: Lucas Tonholi - RA: 190468                   |   
+| + Nome: Otavio Cordeiro de Freitas - RA: 190702      |   
+| + Nome: Raul Ryan Deaque Silva - RA: 190953          |
+| + Nome: Vitor Joaquim de Carvalho Gois - RA: 190583  |
+|                                                      |
+| ---------------------------------------------------- |
+"""
 from numpy import inf
 
 class Grafo:
