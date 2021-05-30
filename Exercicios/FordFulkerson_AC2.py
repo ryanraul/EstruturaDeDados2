@@ -7,7 +7,7 @@
 | + Nome: Lucas Tonholi - RA: 190468                   |   
 | + Nome: Otavio Cordeiro de Freitas - RA: 190702      |   
 | + Nome: Raul Ryan Deaque Silva - RA: 190953          |
-| + Nome: Vitor Joaquim de Carvalho Gois - RA: 190583  |
+| + Nome: Vitor Joaquim de Carvalho Gois - RA: 190810  |
 |                                                      |
 | ---------------------------------------------------- |
 """
